@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Aegeus Dashboard</title>
+    <link rel="icon" href="data:image/webp;base64,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">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main">
+        <nav class="top-nav">
+            <img class="logo" src="./images/Aegeus-Technologies-logo.png" alt="Logo">
+            <h1>Dashboard</h1>
+        </nav>
+
+        <div class="content">
+            <div class="left-column">
+                <div class="input-data">
+                    <div class="name">
+                        <i class="fa-solid fa-person"></i>
+                        <input type="text" placeholder="Name" required>
+                    </div>
+                    <div class="cpnumber">
+                        <i class="fa-solid fa-hashtag"></i>
+                        <input type="text" placeholder="CP Number" required>
+                    </div>
+                    <input type="button" value="Submit">
+                </div>
+
+                <!-- <div class="motor-controls"> -->
+                    <div class="motor-control">
+                        <h3>Drive Motor</h3>
+                        <label class="switch">
+                            <input type="checkbox" id="drive-motor-switch">
+                            <span class="slider round"></span>
+                        </label>
+                        <div class="motor-status">
+                            <span>Status:</span>
+                            <button class="status-indicator" id="drive-motor-status">
+                                <i class="fas fa-check"></i>
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <button class="working-btn" id="drive-motor-working">Not Working</button>
+                    </div>
+                    
+                    <div class="motor-control">
+                        <h3>Brush Motor</h3>
+                        <label class="switch">
+                            <input type="checkbox" id="brush-motor-switch">
+                            <span class="slider round"></span>
+                        </label>
+                        <div class="motor-status">
+                            <span>Status:</span>
+                            <button class="status-indicator" id="brush-motor-status">
+                                <i class="fas fa-check"></i>
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <button class="working-btn" id="brush-motor-working">Not Working</button>
+                    </div>
+            </div>
+
+            <div class="center-column">
+                <div class="button-count">
+                    <div class="count-box">
+                        <i class="fas fa-arrow-right"></i>
+                        <div class="count-info">
+                            <span class="count-text">Right Button:</span>
+                            <span class="count-value" id="right-button-presses">NaN</span>
+                        </div>
+                    </div>
+                    <div class="count-box">
+                        <i class="fas fa-arrow-left"></i>
+                        <div class="count-info">
+                            <span class="count-text">Left Button:</span>
+                            <span class="count-value" id="left-button-presses">NaN</span>
+                        </div>
+                    </div>
+                    <div class="count-box">
+                        <i class="fas fa-stop"></i>
+                        <div class="count-info">
+                            <span class="count-text">Stop Button:</span>
+                            <span class="count-value" id="stop-button-presses">NaN</span>
+                        </div>
+                    </div>
+                    <div class="count-box">
+                        <i class="fa-solid fa-rotate-right"></i>
+                        <div class="count-info">
+                            <span class="count-text">Right Sensor:</span>
+                            <span class="count-value" id="right-sensor-presses">NaN</span>
+                        </div>
+                    </div>
+                    <div class="count-box">
+                        <i class="fa-solid fa-rotate-left"></i>
+                        <div class="count-info">
+                            <span class="count-text">Left Sensor:</span>
+                            <span class="count-value" id="left-sensor-presses">NaN</span>
+                        </div>
+                    </div>
+                    <div class="count-box">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <div class="count-info">
+                            <span class="count-text">Limit Sensor:</span>
+                            <span class="count-value" id="limit-sensor-presses">NaN</span>
+                        </div>
+                    </div>
+                    <div class="count-box">
+                        <i class="fa-solid fa-circle-plus"></i>
+                        <div class="count-info">
+                            <span class="count-text">Totalcount:</span>
+                            <span class="count-value" id="totalcount">NaN</span>
+                        </div>
+                    </div>
+                    <div class="count-box">
+                        <i class="fa-solid fa-sun"></i>
+                        <div class="count-info">
+                            <span class="count-text">Average-count:</span>
+                            <span class="count-value" id="average-count">NaN</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="battery-chart">
+                    <canvas id="batteryVoltageChart"></canvas>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="led">
+                    <div class="rightled-container">
+                        <div class="rightled off" id="right-led"></div>
+                        <span class="led-label">Right LED</span>
+                        <i class="fas fa-lightbulb led-icon"></i>
+                    </div>
+                    <div class="leftled-container">
+                        <div class="leftled off" id="left-led"></div>
+                        <span class="led-label">Left LED</span>
+                        <i class="fas fa-lightbulb led-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="remark">
+            <label for="feedback">Remark:</label>
+            <textarea id="feedback" placeholder="Are you facing any problem?" rows="5" maxlength="300"></textarea>
+        </div>
+        <div id="api-status" class="api-status disconnected">API Disconnected</div>
+    </div>
+  <!-- Load Chart.js first -->
+  <!-- Load date-fns first -->
+<!-- Load date-fns first -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/2.29.3/date-fns.min.js"></script>
+
+<!-- Load Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Load Chart.js adapter for date-fns -->
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+
+<!-- Your app.js should be last -->
+<script src="app.js"></script>
+</body>
+</html>
