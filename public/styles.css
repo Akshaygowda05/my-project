@@ -26,7 +26,7 @@ body {
     display: flex;
     align-items: center;
     box-shadow: 0 4px 20px rgba(63, 81, 181, 0.2);
-    
+
 }
 
 .logo {
@@ -48,7 +48,9 @@ body {
     gap: 20px;
 }
 
-.left-column, .center-column, .right-column {
+.left-column,
+.center-column,
+.right-column {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -66,25 +68,29 @@ body {
 
 .right-column {
     flex: 1;
-    min-width: 250px;
+    min-width: 300px;
 }
 
 /* Input Data Card */
 .input-data {
     background: linear-gradient(145deg, #ffffff 0%, #e5e9fe 100%);
-    padding: 27px;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Input Fields */
-.name, .cpnumber {
+.name,
+.cpnumber,
+.site {
     margin-bottom: 15px;
     display: flex;
     align-items: center;
 }
 
-.name i, .cpnumber i {
+.name i,
+.cpnumber i,
+.site i {
     color: #3f51b5;
     margin-right: 10px;
 }
@@ -139,7 +145,7 @@ input[type="button"]:hover {
 
 .count-box {
     background-color: #f4f7fa;
-    padding: 15px;
+    padding: 20px;
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -187,6 +193,7 @@ input[type="button"]:hover {
 
 /* LED Section */
 .led {
+    margin-top: 10px;
     background: linear-gradient(145deg, #ffffff 0%, #f8f9ff 100%);
     padding: 20px;
     border-radius: 10px;
@@ -196,28 +203,109 @@ input[type="button"]:hover {
     min-height: 200px;
 }
 
-.led-icon {
+#blue_led {
     margin-top: 15px;
     font-size: 24px;
-    color: #4facfe;
+    color: #4295f4;
     animation: pulse 2s infinite;
 }
 
+#green-led {
+    margin-top: 15px;
+    font-size: 24px;
+    color: #60f442;
+    animation: pulse 2s infinite;
+}
+
+/* Checkbox styling */
+.led-right-check,
+.led-left-check {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 25px;
+    height: 25px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    position: relative;
+    margin: 5px;
+    transition: all 0.2s ease;
+    margin-top: 20px;
+}
+
+/* Checked state */
+.led-right-check:checked {
+    background-color: #2196F3;
+    border-color: #2196F3;
+}
+
+.led-left-check:checked {
+    background-color: #44f321;
+    border-color: #48f321;
+}
+
+/* Checkmark */
+.led-right-check:checked::after,
+.led-left-check:checked::after {
+    content: '✓';
+    position: absolute;
+    color: white;
+    font-size: 18px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Hover effect */
+.led-right-check:hover,
+.led-left-check:hover {
+    border-color: #2196F3;
+    box-shadow: 0 0 5px rgba(33, 150, 243, 0.3);
+}
+
+/* Focus state for accessibility */
+.led-right-check:focus,
+.led-left-check:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(33, 150, 243, 0.5);
+}
+
+
+
+.led-right-check {
+    margin-top: 10px;
+}
+
+.led-left-check {
+    margin-top: 10px;
+}
+
 @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* LED Container */
-.rightled-container, .leftled-container {
+.rightled-container,
+.leftled-container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 /* LED Styling */
-.rightled, .leftled {
+.rightled,
+.leftled {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -237,6 +325,7 @@ input[type="button"]:hover {
     box-shadow: 0 0 30px #00D9A5;
     border-color: #00D9A5;
 }
+
 .led-label {
     margin-top: 10px;
     font-size: 14px;
@@ -300,11 +389,11 @@ input[type="button"]:hover {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-input:checked + .slider {
+input:checked+.slider {
     background-color: #214ff3;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
     transform: translateX(26px);
 }
 
@@ -386,44 +475,6 @@ input:checked + .slider:before {
     justify-content: space-between;
 }
 
-/* Remark Section */
-.remark {
-    width: 24vw;
-    height: 30vh;
-    position: absolute;
-    bottom: 210px;
-    right: 20px;
-    background: linear-gradient(145deg, #ffffff 0%, #f8f9ff 100%);
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 8px 32px rgba(255, 107, 107, 0.1);
-}
-
-.remark label {
-    color: #2d2d5f;
-    font-weight: 500;
-}
-
-.remark textarea {
-    width: 100%;
-    padding: 15px;
-    border: 2px solid #e2e0ff;
-    border-radius: 12px;
-    font-size: 14px;
-    resize: vertical;
-    min-height: 100px;
-    background: white;
-    color: #2d2d5f;
-    transition: all 0.3s ease;
-}
-
-
-.remark textarea:focus {
-    border-color: #6b6eff;
-    box-shadow: 0 0 15px rgba(255, 107, 107, 0.1);
-    outline: none;
-}
-
 .working-btn {
     margin-top: 10px;
     padding: 8px 16px;
@@ -468,39 +519,168 @@ input:checked + .slider:before {
     box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
 }
 
-.remark {
-    width: 24vw;
-    height: 30vh;
+/* Dropdown Container */
+.dropdown {
+    /* position: relative; */
+    display: inline-block;
+    width: 350px;
+    margin: 20px;
+    font-family: 'Poppins', sans-serif;
     position: absolute;
-    bottom: 210px;
-    right: 20px;
+    top: 22rem;
+    right: 0.8rem;
+}
+
+/* Dropdown Button */
+.dd-button {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
     background-color: #ffffff;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-.remark label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 16px;
+    border: 1px solid #dedede;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
     color: #333;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.remark textarea {
+.dd-button:hover {
+    background-color: #f8f8f8;
+}
+
+/* Hide the input checkbox but keep its functionality */
+.dd-input {
+    position: absolute;
+    left: -9999px;
+}
+
+/* Dropdown Menu */
+.dd-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
     width: 100%;
-    padding: 15px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    font-size: 14px;
-    resize: vertical;
-    min-height: 100px;
-    transition: border-color 0.3s;
+    padding: 0;
+    margin: 2px 0 0 0;
+    list-style-type: none;
+    background-color: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    /* Hide by default */
+    z-index: 1000;
 }
 
-.remark textarea:focus {
-    border-color: #3f51b5;
-    outline: none;
+/* Show menu when checkbox is checked OR when show class is present */
+.dd-input:checked+.dd-menu,
+.dd-menu.show {
+    display: block;
+}
+
+/* Menu Items */
+.dd-menu li {
+    padding: 12px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #333;
+    transition: background-color 0.2s ease;
+}
+
+.dd-menu li:hover {
+    background-color: #f5f5f5;
+}
+
+/* Selected state */
+.dd-menu li.selected {
+    background-color: #e9ecef;
+}
+
+/* Icons in menu items */
+.dd-menu li i {
+    margin-left: 10px;
+}
+
+.dd-menu li i.fa-thumbs-up {
+    color: #28a745;
+}
+
+.dd-menu li i.fa-thumbs-down {
+    color: #dc3545;
+}
+
+.dd-menu li i.fa-wrench {
+    color: #ffc107;
+}
+
+/* Divider */
+.dd-menu li.divider {
+    padding: 0;
+    border-bottom: 1px solid #dedede;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .dropdown {
+        width: 180px;
+        margin: 15px;
+    }
+
+    .dd-button,
+    .dd-menu li {
+        padding: 10px 15px;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .dropdown {
+        position: static;
+        margin: 20px;
+        width: calc(100% - 40px);
+    }
+
+    .dd-button {
+        width: 100%;
+    }
+
+    .dd-menu {
+        width: 100%;
+        position: relative;
+    }
+}
+
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .dropdown {
+        position: static;
+        margin: 20px;
+        width: calc(100% - 40px);
+    }
+
+    .dd-button {
+        width: 100%;
+    }
+
+    .dd-menu {
+        width: 100%;
+        position: relative;
+    }
 }
 
 
@@ -510,19 +690,22 @@ input:checked + .slider:before {
     .content {
         flex-direction: column;
     }
-    
-    .left-column, .center-column, .right-column {
+
+    .left-column,
+    .center-column,
+    .right-column {
         width: 100%;
         min-width: unset;
     }
-    
+
     .motor-controls {
         flex-direction: row;
     }
-    
+
     .motor-control {
         flex: 1 1 calc(50% - 10px);
     }
+
     .remark {
         width: calc(100% - 40px);
         position: static;
@@ -535,19 +718,19 @@ input:checked + .slider:before {
         flex-direction: column;
         align-items: flex-start;
     }
-    
+
     .logo {
         margin-bottom: 10px;
     }
-    
+
     .button-count {
         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     }
-    
+
     .motor-controls {
         flex-direction: column;
     }
-    
+
     .motor-control {
         flex: 1 1 100%;
     }
@@ -558,7 +741,7 @@ input:checked + .slider:before {
         max-width: 1600px;
         margin: 0 auto;
     }
-    
+
     .battery-chart {
         height: 45vh;
     }
