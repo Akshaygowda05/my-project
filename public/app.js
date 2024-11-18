@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Constants
-   const API_ENDPOINT = 'https://my-project-v94s.onrender.com/api/sensor-data';
-   const MOTOR_CONTROL_ENDPOINT = 'https://my-project-v94s.onrender.com/motor-control';
-
+  const API_ENDPOINT = 'http://103.161.75.85:5000/api/sensor-data';
+  const MOTOR_CONTROL_ENDPOINT = 'http://103.161.75.85:5000/motor-control';
     const SHEETDB_ENDPOINT = 'https://sheetdb.io/api/v1/0a96t6zaebybu';
     const UPDATE_INTERVAL = 1000;
 
@@ -150,6 +149,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const motorStatus = motorSwitch.checked ? "on" : "off";
 
             try {
+                console.log('Sending motor control request', { motor, status: motorStatus });
                  const response = await fetch(MOTOR_CONTROL_ENDPOINT, {
                     method: 'POST',
                     headers: {
@@ -157,9 +157,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     },
                     body: JSON.stringify({ motor, status: motorStatus }),
                 });
-
+                console.log('Response status:', response.status);
                 const data = await response.json();
+                console.log('Motor control response:', data);
+
+                 // Handle success response
                 if (data.success) {
+                    console.log(`${motor} motor has been turned ${motorStatus}`);
                     this.updateMotorUI(motor, motorSwitch.checked);
                     this.motorStates[motor] = motorSwitch.checked;
                 } else {

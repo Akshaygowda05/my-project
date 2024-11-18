@@ -11,7 +11,6 @@ app.use(cors({
   origin: '*'  // Allow requests from any origin
 }));
 
-
 // Parse incoming JSON requests
 app.use(express.json());
 
@@ -27,7 +26,7 @@ app.get('/', (req, res) => {
 app.get('/api/sensor-data', async (req, res) => {
     try {
         // Forward the GET request to the ESP32 API to fetch sensor data
-        const response = await axios.get('http://192.168.0.200/api/sensor-data'); // ESP32 local IP
+        const response = await axios.get('http://103.161.75.85:5000/api/sensor-data'); // Update this to the public IP
         res.json(response.data); // Forward the sensor data to the frontend
     } catch (error) {
         console.error('Error fetching sensor data from ESP32:', error.message);
@@ -39,13 +38,14 @@ app.get('/api/sensor-data', async (req, res) => {
 app.post('/motor-control', async (req, res) => {
     try {
         // Forward the motor control request to the ESP32
-        const response = await axios.post('http://192.168.0.200/motor-control', req.body, {
+        const response = await axios.post('http://103.161.75.85:5000/motor-control', req.body, {
             headers: {
                 'Content-Type': 'application/json'
             }
         });
         
         // Forward the response from ESP32 to the frontend
+         console.log("Motor control response from ESP32:", response.data);
         res.json(response.data);
     } catch (error) {
         console.error('Error forwarding motor control request:', error.message);
