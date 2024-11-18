@@ -1,37 +1,59 @@
 const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
-const path=require('path')
+const path = require('path');
+
 const app = express();
-const PORT = 3000; // or any available port
+const PORT = 3000; // Port for your Node.js server
 
-// Enable CORS
-app.use(cors());
-app.use(express.json())
+// Enable CORS to allow cross-origin requests (necessary for frontend requests)
+app.use(cors({
+  origin: '*'  // Allow requests from any origin
+}));
 
-// Serve static files from the 'public' directory
+
+// Parse incoming JSON requests
+app.use(express.json());
+
+// Serve static files (for the frontend dashboard) from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Root route
+// Root route to serve the HTML page (index.html)
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
-// Proxy endpoint
+
+// Proxy endpoint for fetching sensor data from the ESP32
+app.get('/api/sensor-data', async (req, res) => {
+    try {
+        // Forward the GET request to the ESP32 API to fetch sensor data
+        const response = await axios.get('http://192.168.0.200/api/sensor-data'); // ESP32 local IP
+        res.json(response.data); // Forward the sensor data to the frontend
+    } catch (error) {
+        console.error('Error fetching sensor data from ESP32:', error.message);
+        res.status(500).json({ error: 'Error fetching sensor data from ESP32' });
+    }
+});
+
+// Proxy endpoint for controlling motors
 app.post('/motor-control', async (req, res) => {
     try {
+        // Forward the motor control request to the ESP32
         const response = await axios.post('http://192.168.0.200/motor-control', req.body, {
             headers: {
                 'Content-Type': 'application/json'
             }
         });
+        
+        // Forward the response from ESP32 to the frontend
         res.json(response.data);
     } catch (error) {
-        console.error('Error:', error.message);
-        res.status(500).json({ error: 'Error forwarding request' });
+        console.error('Error forwarding motor control request:', error.message);
+        res.status(500).json({ error: 'Error forwarding motor control request' });
     }
 });
 
-// Start the server
+// Start the server on the specified port
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });

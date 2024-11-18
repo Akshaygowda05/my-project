@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Constants
-    const API_ENDPOINT = 'http://192.168.0.200/api/sensor-data';
+   const API_ENDPOINT = 'https://my-project-v94s.onrender.com/api/sensor-data';
+   const MOTOR_CONTROL_ENDPOINT = 'https://my-project-v94s.onrender.com/motor-control';
+
     const SHEETDB_ENDPOINT = 'https://sheetdb.io/api/v1/0a96t6zaebybu';
     const UPDATE_INTERVAL = 1000;
 
@@ -148,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const motorStatus = motorSwitch.checked ? "on" : "off";
 
             try {
-                const response = await fetch('http://localhost:3000/motor-control', {
+                 const response = await fetch(MOTOR_CONTROL_ENDPOINT, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
